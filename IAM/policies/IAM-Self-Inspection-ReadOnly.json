@@ -1,0 +1,16 @@
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowViewOwnIAMUserDetails",
+      "Effect": "Allow",
+      "Action": [
+        "iam:GetUser",
+        "iam:ListMFADevices",
+        "iam:ListAccessKeys"
+      ],
+      "Resource": "arn:aws:iam::*:user/${aws:username}"
+    }
+  ]
+}
