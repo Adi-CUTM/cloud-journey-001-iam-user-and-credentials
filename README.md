@@ -1,21 +1,12 @@
-# ☁️ Project 001 — AWS IAM User and Credentials Management
+<div align="center">
 
-\<div align="center">
-
-
+<img src="assets/banner.png" alt="Project 001 - AWS IAM User and Credentials Management" width="100%">
 
 ### 🔐 AWS Cloud Engineering | Identity & Access Management | Cloud Security
 
-
-
-
-
-\
-
-
 **Learn by Building. Secure by Design. Improve with Every Project.**
 
-\</div>
+</div>
 
 ---
 
@@ -33,7 +24,7 @@
 | [🧠 Learnings](#-key-learnings)                    | Lessons learned             |
 | [🎤 Interviews](#-interview-preparation)           | Interview questions         |
 | [💰 Cost](#-cost-considerations)                   | AWS pricing considerations  |
-| [📚 References](#-references)                      | Official documentation      |
+| [📚 References](#-official-aws-references)         | Official documentation      |
 
 ---
 
@@ -262,19 +253,17 @@ Additional sanitized evidence will be added as the project progresses.
 
 ### 🖼️ Implementation Preview
 
-Add screenshots below as they become available.
-
 **IAM Permissions Setup**
 
-
+![IAM Permissions Setup](screenshots/01-iam-permissions-setup.png)
 
 **IAM User Review**
 
-
+![IAM User Review](screenshots/02-iam-review-screen.png)
 
 **Successful IAM User Login**
 
-
+![Successful IAM User Login](screenshots/03-iam-user-first-login.png)
 
 > ⚠️ Before publishing screenshots, remove account identifiers, personal account details, passwords, access keys, secret keys, MFA QR codes and other sensitive information.
 
@@ -286,6 +275,9 @@ Add screenshots below as they become available.
 IAM/
 │
 ├── README.md
+│
+├── assets/
+│   └── banner.svg
 │
 ├── policies/
 │   ├── .gitkeep
@@ -414,10 +406,10 @@ This project is part of my ongoing journey from cybersecurity foundations toward
 
 ---
 
-\<div align="center">
+<div align="center">
 
 ### ⭐ Learn by Building. Secure by Design. Improve with Every Project.
 
 **Project 001 | AWS IAM User and Credentials Management**
 
-\</div>
+</div>
