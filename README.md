@@ -1,194 +1,423 @@
-# Project 001: AWS IAM User and Credentials Management
+# ☁️ Project 001 — AWS IAM User and Credentials Management
 
-<p align="center">
-  <strong>AWS Cloud Engineering | Identity and Access Management | Cloud Security</strong>
-</p>
+\<div align="center">
+
+
+
+### 🔐 AWS Cloud Engineering | Identity & Access Management | Cloud Security
+
+
+
+
+
+\
+
+
+**Learn by Building. Secure by Design. Improve with Every Project.**
+
+\</div>
+
+---
+
+## 🧭 Project Navigation
+
+| Section                                            | Description                 |
+| -------------------------------------------------- | --------------------------- |
+| [📌 Overview](#-project-overview)                  | Introduction to the project |
+| [🎯 Objectives](#-project-objectives)              | Learning goals              |
+| [🏗️ Environment](#️-aws-environment)              | Lab configuration           |
+| [📖 Concepts](#-concepts-covered)                  | IAM fundamentals            |
+| [🔨 Implementation](#-implementation-and-progress) | Practical implementation    |
+| [🔐 Security](#-security-implementation)           | Security controls           |
+| [📸 Evidence](#-project-evidence)                  | Screenshots                 |
+| [🧠 Learnings](#-key-learnings)                    | Lessons learned             |
+| [🎤 Interviews](#-interview-preparation)           | Interview questions         |
+| [💰 Cost](#-cost-considerations)                   | AWS pricing considerations  |
+| [📚 References](#-references)                      | Official documentation      |
+
+---
 
 ## 📌 Project Overview
 
-This project is part of my **Cloud Journey**, where I am developing practical skills in AWS Cloud Engineering and Cloud Security.
+Welcome to **Project 001** of my **Cloud Journey**, where I am transitioning from cybersecurity foundations into practical AWS Cloud Engineering and Cloud Security.
 
-The objective of this project is to understand AWS Identity and Access Management (IAM), explore different authentication methods, and learn how identities and credentials are managed securely within an AWS environment.
+This project focuses on understanding and implementing **AWS Identity and Access Management (IAM)**, one of the foundational services responsible for controlling access to AWS resources.
 
-Through this hands-on lab, I will explore IAM users, authentication credentials, permissions, and essential security practices.
+Through this hands-on lab, I explored how AWS identities are created, authenticated, secured and organized using IAM users, groups, credentials and Multi-Factor Authentication (MFA).
+
+The project also demonstrates how the **Principle of Least Privilege** helps prevent unnecessary access to cloud resources.
+
+### 💡 Real-world relevance
+
+In enterprise environments, identity security is one of the most important aspects of cloud security.
+
+A compromised identity with excessive permissions can create serious security risks, including unauthorized access, data exposure and infrastructure modification.
+
+This project establishes the foundation for understanding and preventing such risks.
+
+---
 
 ## 🎯 Project Objectives
 
-- Understand the purpose of AWS IAM.
-- Understand the difference between the AWS account root user and an IAM user.
-- Learn how to create and configure an IAM user.
-- Understand console access and programmatic access.
-- Explore IAM policies and permissions.
-- Understand the role of Multi-Factor Authentication (MFA).
-- Learn secure credential management practices.
-- Apply the principle of least privilege.
+- [x] Understand the purpose of AWS IAM.
+- [x] Understand the AWS root user and IAM user.
+- [x] Create and configure an IAM user.
+- [x] Configure AWS Management Console access.
+- [x] Understand IAM groups and permission management.
+- [x] Configure Multi-Factor Authentication (MFA).
+- [x] Understand authentication versus authorization.
+- [ ] Explore IAM policies and JSON permissions.
+- [ ] Understand programmatic access and access key security.
+- [ ] Validate specific allowed and denied IAM actions.
+- [x] Apply the principle of least privilege.
+- [ ] Complete final documentation and cleanup review.
+
+---
 
 ## 🏗️ AWS Environment
 
-| Component | Details |
-|---|---|
-| Cloud Provider | Amazon Web Services (AWS) |
-| AWS Service | Identity and Access Management (IAM) |
-| Project Type | Hands-on Lab |
-| Difficulty | Beginner |
-| Primary Focus | Identity and Credential Management |
-| Account Type | AWS Free Tier account |
-| Status | In Progress |
+| Component      | Details                                |
+| -------------- | -------------------------------------- |
+| Cloud Provider | Amazon Web Services                    |
+| AWS Service    | Identity and Access Management         |
+| Region         | Asia Pacific (Mumbai) — console region |
+| Project Type   | Hands-on Security Lab                  |
+| Difficulty     | Beginner                               |
+| Primary Focus  | Identity and Credential Management     |
+| Account Type   | AWS Free Tier account                  |
+| IAM Username   | `cloud-journey-lab-user`               |
+| IAM Group      | `cloud-journey-lab-group`              |
+| Console Access | Enabled                                |
+| MFA            | Configured                             |
+| Project Status | Core implementation completed          |
+
+---
 
 ## 🧰 AWS Services and Tools
 
-- **AWS IAM:** Identity and access management.
-- **AWS Management Console:** Web-based interface for managing AWS services.
-- **GitHub:** Project documentation and version control.
+| Service / Tool         | Purpose                                       |
+| ---------------------- | --------------------------------------------- |
+| AWS IAM                | Identity and access management                |
+| AWS Management Console | Managing AWS services through a web interface |
+| Virtual MFA            | Additional authentication security            |
+| GitHub                 | Version control and project documentation     |
+| Markdown               | Technical documentation                       |
+
+---
 
 ## 📖 Concepts Covered
 
-### 1. AWS Root User
+### 1️⃣ AWS Root User
 
-The root user is the original identity created when an AWS account is registered. It has full access to the account and should be protected carefully.
+The AWS root user is the original identity created when an AWS account is registered.
 
-### 2. IAM User
+It has extensive access to the account and should be protected carefully.
 
-An IAM user is an identity within an AWS account that can be assigned specific permissions.
+**Security practices:**
 
-IAM users are useful to understand for this lab and for certain legacy or specialized use cases. For workforce access, AWS generally recommends IAM Identity Center or federated access where appropriate.
+- Enable MFA.
+- Avoid everyday usage.
+- Avoid creating root access keys.
+- Secure account recovery methods.
 
-### 3. Authentication Credentials
+### 2️⃣ IAM User
 
-This project explores the following credential types:
+An IAM user represents an identity within an AWS account.
 
-- Console password
-- Access Key ID
-- Secret Access Key
-- Multi-Factor Authentication (MFA)
+An IAM user can have console credentials and permissions assigned through applicable policies.
 
-**Security note:** Access keys will not be created unless required for a specific learning objective. Actual credentials will never be included in this repository.
+For this lab, I created:
 
-### 4. IAM Policies
+`cloud-journey-lab-user`
 
-IAM policies define what actions an identity can perform and which AWS resources it can access.
+> **Production consideration:** AWS generally recommends federated access and temporary credentials for human users rather than creating long-lived IAM users unnecessarily.
 
-### 5. Principle of Least Privilege
+### 3️⃣ IAM Groups
 
-Users and identities should receive only the permissions necessary to perform their intended tasks.
+IAM groups allow administrators to organize IAM users according to their responsibilities.
 
-## 🔨 Implementation Plan
+For this project, I created:
 
-The project will be completed in the following stages:
+`cloud-journey-lab-group`
 
-- [ ] Review AWS root user security.
-- [ ] Understand IAM users and their purpose.
-- [ ] Create a test IAM user.
-- [ ] Configure appropriate console access, if required.
-- [ ] Explore IAM policies and permissions.
-- [ ] Configure MFA where applicable.
-- [ ] Understand programmatic credentials and access key security.
-- [ ] Validate the configured access.
-- [ ] Document observations and lessons learned.
-- [ ] Review and clean up lab resources.
+The user was added to this dedicated group to understand centralized permission management.
 
-## 🔐 Security Best Practices
+### 4️⃣ Authentication vs. Authorization
 
-Throughout this project, the following security practices will be followed:
+**Authentication:** Verifies the identity of a person or service requesting access.
 
-- Protect the root user with MFA.
-- Avoid using the root user for everyday administration.
-- Follow the principle of least privilege.
-- Avoid unnecessary long-term access keys.
-- Never share passwords or secret credentials.
-- Never upload AWS credentials to GitHub.
-- Review IAM permissions regularly.
-- Remove unused identities and credentials.
-- Prefer temporary credentials and recommended federation methods where appropriate.
+**Authorization:** Determines whether the authenticated identity is permitted to perform a requested action.
 
-## 🧪 Validation and Testing
+An IAM user can successfully sign in while still receiving an `Access Denied` response when requesting an unauthorized operation.
 
-The following checks will be documented after implementation:
+### 5️⃣ Authentication Credentials
 
-- Verify that the IAM identity has been created successfully.
-- Verify the configured authentication method.
-- Confirm that permissions behave as expected.
-- Test that unauthorized actions are denied.
-- Confirm that MFA works, if configured.
+This project explores:
 
-## 📸 Screenshots
+- Console passwords.
+- Access Key IDs.
+- Secret Access Keys.
+- Multi-Factor Authentication.
 
-Sanitized screenshots will be added here to demonstrate the implementation.
+**Security note:** No actual passwords, access keys, secret keys or MFA recovery information are stored in this repository.
 
-Screenshots must not expose account-sensitive information, passwords, access keys, secret keys, MFA codes, or other confidential details.
+### 6️⃣ IAM Policies
+
+IAM policies are JSON documents that define permissions.
+
+Important policy elements include:
+
+- `Effect`
+- `Action`
+- `Resource`
+- `Condition`
+
+These elements will be explored through the policy exercises in the next stage.
+
+### 7️⃣ Principle of Least Privilege
+
+Least privilege means granting only the minimum permissions required to perform a specific task.
+
+This reduces the potential impact of compromised credentials and unauthorized activities.
+
+---
+
+## 🔨 Implementation and Progress
+
+The project is being implemented in progressive stages.
+
+| Task   | Implementation                   | Status      |
+| ------ | -------------------------------- | ----------- |
+| 001.1  | Review root account security     | ✅ Completed |
+| 001.2  | Verify account recovery access   | ✅ Completed |
+| 001.3  | Create IAM group                 | ✅ Completed |
+| 001.4  | Create IAM user                  | ✅ Completed |
+| 001.5  | Configure console password       | ✅ Completed |
+| 001.6  | Configure IAM user MFA           | ✅ Completed |
+| 001.7  | Verify IAM user login            | ✅ Completed |
+| 001.8  | Study IAM policy permissions     | 🔄 Pending  |
+| 001.9  | Validate access-control behavior | 🔄 Pending  |
+| 001.10 | Final documentation and cleanup  | 🔄 Pending  |
+
+### 👤 IAM User Configuration
+
+| Configuration       | Value                          |
+| ------------------- | ------------------------------ |
+| Username            | `cloud-journey-lab-user`       |
+| Group               | `cloud-journey-lab-group`      |
+| Password            | AWS-generated initial password |
+| Password Reset      | Required at first login        |
+| MFA                 | Enabled                        |
+| AdministratorAccess | Not intentionally granted      |
+
+**Permission observation:** The IAM user creation review displayed the AWS-managed `IAMUserChangePassword` policy. This supports the user's ability to change their own console password and does not provide administrative access.
+
+---
+
+## 🔐 Security Implementation
+
+The following security controls were implemented or reviewed.
+
+| Security Control                | Result                                    |
+| ------------------------------- | ----------------------------------------- |
+| Root account MFA                | ✅ Enabled                                 |
+| Root access keys                | ✅ None present during review              |
+| Account recovery access         | ✅ Verified                                |
+| Dedicated IAM group             | ✅ Created                                 |
+| IAM user                        | ✅ Created                                 |
+| Initial password reset          | ✅ Configured                              |
+| IAM user MFA                    | ✅ Configured                              |
+| Broad administrator permissions | ✅ Avoided                                 |
+| Least privilege                 | ✅ Applied as the initial design principle |
+
+### 🔎 Practical Security Observation
+
+During the first IAM user login, some dashboard features displayed `Access denied`.
+
+Examples included:
+
+- AWS Cost and Usage.
+- Billing-related information.
+- AWS Health.
+
+This demonstrated an important security principle:
+
+**Successful authentication does not guarantee authorization to access every AWS service.**
+
+The user must have appropriate permissions for the requested operation.
+
+---
+
+## 📸 Project Evidence
+
+Screenshots are maintained in the `screenshots/` directory.
+
+| Screenshot                     | Description                     |
+| ------------------------------ | ------------------------------- |
+| `01-iam-permissions-setup.png` | IAM permissions configuration   |
+| `02-iam-review-screen.png`     | Review before creating the user |
+| `03-iam-user-first-login.png`  | Successful IAM user login       |
+
+Additional sanitized evidence will be added as the project progresses.
+
+### 🖼️ Implementation Preview
+
+Add screenshots below as they become available.
+
+**IAM Permissions Setup**
+
+
+
+**IAM User Review**
+
+
+
+**Successful IAM User Login**
+
+
+
+> ⚠️ Before publishing screenshots, remove account identifiers, personal account details, passwords, access keys, secret keys, MFA QR codes and other sensitive information.
+
+---
 
 ## 📂 Repository Structure
 
 ```text
-cloud-journey-001-iam-user-and-credentials/
+IAM/
 │
 ├── README.md
 │
-├── screenshots/
-│   └── .gitkeep
-│
 ├── policies/
-│   └── .gitkeep
+│   ├── .gitkeep
+│   └── (IAM JSON policy examples will be added here)
 │
-└── lessons-learned.md
+├── screenshots/
+│   ├── 01-iam-permissions-setup.png
+│   ├── 02-iam-review-screen.png
+│   └── 03-iam-user-first-login.png
+│
+├── lessons-learned.md
+│
+└── LICENSE
 ```
 
-## 💡 Key Learnings
+---
 
-This section will be updated after completing the hands-on implementation.
+## 🧠 Key Learnings
 
-Topics will include:
+Throughout this project, I learned:
 
-- Differences between root users and IAM users.
-- Understanding AWS authentication mechanisms.
-- IAM permissions and policies.
-- Credential security.
-- MFA and account protection.
-- Practical application of least privilege.
+- The importance of securing the AWS root account.
+- The purpose of IAM users and groups.
+- The difference between authentication and authorization.
+- How MFA strengthens identity security.
+- How IAM policies control access.
+- Why newly created IAM users have no permissions by default.
+- Why Access Denied messages can be expected security outcomes.
+- How least privilege reduces cloud security risks.
+- Why temporary credentials are preferred for human access in production environments.
+
+📖 **Detailed documentation:** [Read Lessons Learned](lessons-learned.md)
+
+---
 
 ## 🎤 Interview Preparation
 
-Some questions explored through this project:
+The following questions are associated with this project:
 
 1. What is AWS IAM?
-2. What is the difference between an AWS root user and an IAM user?
-3. What is an IAM policy?
-4. What is the principle of least privilege?
-5. What is the difference between console access and programmatic access?
-6. What are Access Key IDs and Secret Access Keys?
-7. Why should access keys not be shared or committed to GitHub?
-8. What is MFA, and why is it important?
-9. What are temporary credentials?
-10. Why does AWS recommend alternatives to long-lived IAM user credentials for human access?
+2. What is the difference between the root user and an IAM user?
+3. What is an IAM group?
+4. What is an IAM policy?
+5. What is the principle of least privilege?
+6. What is the difference between authentication and authorization?
+7. What is the difference between console access and programmatic access?
+8. What are Access Key IDs and Secret Access Keys?
+9. Why is MFA important?
+10. What happens when an IAM user has no permissions?
+11. What is the difference between an IAM user and an IAM role?
+12. What are temporary credentials?
+13. What is the difference between implicit deny and explicit deny?
+14. Why should credentials never be committed to GitHub?
+
+---
 
 ## 💰 Cost Considerations
 
-AWS IAM does not have an additional charge for its core identity and access management features. However, any other AWS services used during this or future labs may incur charges.
+AWS IAM's core identity and access management features do not carry an additional service charge.
 
-All resources and billing implications will be reviewed before deployment.
+This project focuses on IAM and does not require launching EC2 instances, creating databases or deploying networking infrastructure.
 
-## 🧹 Cleanup
+However:
 
-After completing the lab:
+- Other AWS services may incur charges.
+- Optional security and monitoring services may have separate pricing.
+- Always review the official AWS pricing documentation.
+- Monitor AWS Billing and Cost Management.
+- Never assume that every AWS Free Tier service or feature is free.
 
-- Review the IAM user and attached permissions.
-- Remove unnecessary test identities.
-- Delete unused credentials.
-- Ensure no unnecessary resources remain.
-- Maintain secure root account settings.
+🔗 [AWS Pricing](https://aws.amazon.com/pricing/)
 
-## 📚 References
+---
 
-- [AWS Identity and Access Management (IAM)](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)
+## 🧹 Cleanup and Security Review
+
+Before considering the project fully closed:
+
+- [ ] Review the IAM user's permissions.
+- [ ] Review group membership and attached policies.
+- [ ] Confirm MFA configuration.
+- [ ] Review unused credentials.
+- [ ] Remove unnecessary test identities if no longer needed.
+- [ ] Check for unintended AWS resources.
+- [ ] Review billing information through an appropriately authorized account identity.
+- [ ] Ensure the repository contains no secrets.
+
+---
+
+## 🚀 What's Next?
+
+The next stage of this project focuses on **AWS IAM Policy Management**.
+
+Planned practical exercises:
+
+1. Understand IAM JSON policy structure.
+2. Create a custom read-only policy.
+3. Understand `Allow` and `Deny`.
+4. Explore `Action` and `Resource`.
+5. Understand policy `Condition`.
+6. Compare implicit deny and explicit deny.
+7. Test permissions safely.
+8. Document policy behavior.
+
+This will build the foundation for more advanced cloud security projects.
+
+---
+
+## 📚 Official AWS References
+
+- [AWS IAM Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html)
 - [IAM Security Best Practices](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html)
+- [IAM Policies](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies.html)
 - [AWS Shared Responsibility Model](https://aws.amazon.com/compliance/shared-responsibility-model/)
+- [AWS Pricing](https://aws.amazon.com/pricing/)
+
+---
 
 ## 👨‍💻 Author
 
-**Cloud Journey — AWS Cloud Engineering and Cloud Security**
+**Aditya Srichandan**
+
+☁️ Cloud Journey — AWS Cloud Engineering & Cloud Security
 
 This project is part of my ongoing journey from cybersecurity foundations toward practical AWS Cloud Engineering and Cloud Security skills.
 
 ---
 
-⭐ *Learn by building. Secure by design. Improve with every project.*
+\<div align="center">
+
+### ⭐ Learn by Building. Secure by Design. Improve with Every Project.
+
+**Project 001 | AWS IAM User and Credentials Management**
+
+\</div>
