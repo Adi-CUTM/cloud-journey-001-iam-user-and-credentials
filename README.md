@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/banner.svg" alt="Project 001 - AWS IAM User and Credentials Management" width="100%">
+<img src="assets/banner.png" alt="Project 001 - AWS IAM User and Credentials Management" width="100%">
 
 **AWS CLOUD ENGINEERING | IDENTITY & ACCESS MANAGEMENT | CLOUD SECURITY**
 
