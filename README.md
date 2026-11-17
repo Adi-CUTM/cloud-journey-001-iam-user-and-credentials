@@ -1,10 +1,19 @@
-# ☁️ Project 001 — AWS IAM User and Credentials Management
+<div align="center">
 
-\<p align="center">   \<strong>AWS CLOUD ENGINEERING | IDENTITY & ACCESS MANAGEMENT | CLOUD SECURITY\</strong> \</p>
+<img src="assets/banner.svg" alt="Project 001 - AWS IAM User and Credentials Management" width="100%">
 
-\<p align="center">   \<img src="[https://img.shields.io/badge/AWS-IAM-orange?style=for-the-badge&logo=amazonaws](https://img.shields.io/badge/AWS-IAM-orange?style=for-the-badge\&logo=amazonaws)" />   \<img src="[https://img.shields.io/badge/Project-001-blue?style=for-the-badge](https://img.shields.io/badge/Project-001-blue?style=for-the-badge)" />   \<img src="[https://img.shields.io/badge/Level-Beginner-green?style=for-the-badge](https://img.shields.io/badge/Level-Beginner-green?style=for-the-badge)" />   \<img src="[https://img.shields.io/badge/Status-Completed-success?style=for-the-badge](https://img.shields.io/badge/Status-Completed-success?style=for-the-badge)" /> \</p>
+**AWS CLOUD ENGINEERING | IDENTITY & ACCESS MANAGEMENT | CLOUD SECURITY**
 
-\<p align="center">   \<em>Learn by Building. Secure by Design. Improve with Every Project.\</em> \</p>
+<p>
+  <img src="https://img.shields.io/badge/AWS-IAM-orange?style=for-the-badge&logo=amazonaws" alt="AWS IAM">
+  <img src="https://img.shields.io/badge/Project-001-blue?style=for-the-badge" alt="Project 001">
+  <img src="https://img.shields.io/badge/Level-Beginner-green?style=for-the-badge" alt="Level Beginner">
+  <img src="https://img.shields.io/badge/Status-Completed-success?style=for-the-badge" alt="Status Completed">
+</p>
+
+*Learn by Building. Secure by Design. Improve with Every Project.*
+
+</div>
 
 ---
 
@@ -16,7 +25,7 @@
 | [🎯 Objectives](#-project-objectives)          | Learning goals              |
 | [🏗️ Environment](#️-aws-environment)          | Lab configuration           |
 | [📚 Concepts](#-concepts-learned)              | AWS IAM fundamentals        |
-| [⚙️ Implementation](#️-implementation)         | Practical implementation    |
+| [⚙️ Implementation](#️-implementation-summary) | Practical implementation    |
 | [📸 Screenshots](#-implementation-screenshots) | Visual project evidence     |
 | [📜 IAM Policies](#-iam-policies)              | Policy documentation        |
 | [🔐 Security](#-security-observations)         | Security observations       |
@@ -115,7 +124,7 @@ This project explored:
 - Resource specifications.
 - Explicit and implicit denial.
 
-The project includes a self-inspection policy example in the `policies/` directory.
+The project includes a self-inspection policy example in the `IAM/policies/` directory.
 
 ### 5. Multi-Factor Authentication (MFA)
 
@@ -193,37 +202,37 @@ The following screenshots document the actual implementation process.
 
 ### 01. Root User Security Review
 
-
+![Root User Security Review](IAM/screenshots/01-root-user-security-review.png)
 
 Reviewed the root account's security configuration before creating the IAM identity.
 
 ### 02. IAM Group Created
 
-
+![IAM Group Created](IAM/screenshots/02-iam-group-created.png)
 
 Created the `cloud-journey-lab-group` to demonstrate group-based permission management.
 
 ### 03. IAM User Review and Create
 
-
+![IAM User Review and Create](IAM/screenshots/03-iam-user-review-and-create.png)
 
 Reviewed the IAM user's configuration before creation.
 
 ### 04. IAM User Creation Successful
 
-
+![IAM User Creation Successful](IAM/screenshots/04-iam-user-creation-success.png)
 
 Successfully created the IAM user and configured the required group membership.
 
 ### 05. MFA Enabled
 
-
+![MFA Enabled](IAM/screenshots/05-iam-user-mfa-enabled.png)
 
 Configured Multi-Factor Authentication to strengthen the IAM user's authentication security.
 
 ### 06. First IAM User Login
 
-
+![First IAM User Login](IAM/screenshots/06-iam-user-first-login.png)
 
 Successfully logged in using the newly created IAM user.
 
@@ -231,11 +240,9 @@ Successfully logged in using the newly created IAM user.
 
 ## 📜 IAM Policies
 
-This directory contains the policy documentation associated with this project.
+This section documents the policy artifact associated with this project.
 
-**Policy artifact:**
-
-`policies/IAM-Self-Inspection-ReadOnly.json`
+**Policy artifact:** [`IAM/policies/IAM-Self-Inspection-ReadOnly.json`](IAM/policies/IAM-Self-Inspection-ReadOnly.json)
 
 The policy example demonstrates selected IAM self-inspection actions, including:
 
@@ -274,6 +281,8 @@ Throughout this project, the following security practices were emphasized:
 8. Least privilege is an essential cloud security principle.
 9. The IAM Policy Simulator requires appropriate permissions to perform certain operations.
 10. Security should not be weakened merely to remove dashboard warnings.
+
+📖 **Detailed notes:** [Read Lessons Learned](lessons-learned.md)
 
 ## 🎤 Interview Preparation
 
@@ -356,16 +365,18 @@ Before considering this project closed:
 
 ## 👨‍💻 Author
 
-**Cloud Journey — AWS Cloud Engineering & Cloud Security**
+**Aditya Srichandan**
+
+☁️ Cloud Journey — AWS Cloud Engineering & Cloud Security
 
 This project represents my first practical AWS identity-management implementation as I transition from cybersecurity toward cloud engineering and cloud security.
 
 ---
 
-\<p align="center">
-&#x20; ⭐ \<strong>Learn by Building. Secure by Design. Improve with Every Project.\</strong>
-\</p>
+<div align="center">
 
-\<p align="center">
-&#x20; \<sub>Project 001 | AWS IAM User and Credentials Management | Cloud Journey\</sub>
-\</p>
+⭐ **Learn by Building. Secure by Design. Improve with Every Project.**
+
+<sub>Project 001 | AWS IAM User and Credentials Management | Cloud Journey</sub>
+
+</div>
